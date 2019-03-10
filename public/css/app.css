@@ -131,9 +131,10 @@ html, body {
   font-size: 22px;
   margin-top: 15px;
 }
-.wpub-wrapper-blog .wpub-wrapper-blog-content img[src*='#full-width'] {
+.wpub-wrapper-blog .wpub-wrapper-blog-content img {
   display: block;
-  width: 100%;
+  width: 80%;
+  margin: 20px auto;
 }
 .wpub-wrapper-blog .wpub-page-navigation {
   grid-area: blog_nav;
