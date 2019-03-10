@@ -1,0 +1,11 @@
+
+exclude: [resources, compile_css.bat]
+safe: false # potrebne na to aby fungovali vlastne flitre
+permalink: /blog/:title
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+
+plugins:
+- jekyll-admin
+- jekyll-paginate

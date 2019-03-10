@@ -1,0 +1,19 @@
+- title: "IAESTE Admin"
+  img: "admin.png"
+  text: "Informačný systém vytvorený pre študentsku organizáciu **IAESTE**. Slúži na správu členov, organizáciu a archiváciu skôdzií, prihlasovanie sa na konferencie, usporadúvanie volieb, správu prístupov do iných systémov a moho ďalších. Systém je napísaný v jazyku **PHP** pomocu frameworku **YII2**"
+
+- title: "WT Books"
+  img: "wtbooks.png"
+  text: "Elektronický obchod určený na predaj kníh. Vytvorený v rámci predmetu **Webové technológie** na FIIT. Obchod je napísaný v jazyku **PHP** pomocu frameworku **Laravel**"
+
+- title: "StepToJump"
+  img: "step.png"
+  text: "Webová stránka študentskej organizácie **IAESTE** slúžacia na propagáciu a registrovanie sa na rovnomennú akciu, ktorá sa usporadúva každý rok a je zameraná na prehĺbenie vzťahov medzi starými a novými členmi. Stránka ja vytvorená vo **Wordpresse**."
+
+- title: "Študuj FIIT"
+  img: "studuj.png"
+  text: "Stránka na propagáciu Fakulty informatiky a informačných technológií Slovenskej technickej univerzity v Bratislave (FIIT STU). Stránka je vytvorená pomocou generátora statických stránok **Jekyll.rb**."
+
+- title: "FIIT PhD"
+  img: "phd.png"
+  text: "Stránka na propagáciu doktorandského štúdia na Fakulte informatiky a informačných technológií Slovenskej technickej univerzity v Bratislave (FIIT STU). Stránka je vytvorená pomocou generátora statických stránok **Jekyll.rb**"

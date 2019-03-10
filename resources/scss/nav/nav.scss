@@ -1,0 +1,109 @@
+// https://www.newmediacampaigns.com/blog/nicer-navigation-with-css-transitions-part-2
+// https://www.taniarascia.com/responsive-dropdown-navigation-bar/
+
+@import "variables";
+$menuHeight: $nav-height;	//legacy
+
+html {
+
+
+	@import "hamburgers/hamburgers";
+	@import "mixins";
+	@import "extenders";
+
+	.f-nav-placeholder {
+		display: block;
+		height: $nav-height;
+	}
+
+
+	.f-nav {
+		@extend %no-margin-padding;
+		display: flex;
+		box-sizing: border-box;
+		width: 100%;
+		height: $nav-height;
+		justify-content: center;
+		background-color: $nav-color-background;
+		position: fixed;
+		top: 0;
+		z-index: $nav-z-index;
+		border-bottom: 1px solid $nav-color-border;
+		box-shadow: 0 0 3px $nav-color-border;
+
+		.f-nav-content {
+			@extend %keep-flex-height;
+			width: 100%;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			max-width: $content-width;
+
+			@media screen and (min-width: $breakpoint) { padding: 0 20px; }
+			@media screen and (max-width: $breakpoint) { padding: 0 5px; }
+
+
+			.f-nav-brand {
+				@extend %keep-flex-height;
+
+				a {
+					@extend %keep-block-height;
+					width: 100%;
+					text-decoration: none;
+					display: flex;
+					align-items: center;
+					img { @extend %keep-block-height; }
+
+					span {
+						font-size: 20px;
+						font-weight: bold;
+						color: white;
+					}
+				}
+
+				// extra style for this website
+				.f-nav-sub {
+					$margin: 7px;
+					height: calc(100% - #{2 * $margin});
+					line-height: $nav-height - 2 * $margin;
+					margin: $margin 0 $margin 5px;
+					border-left: 1px solid $nav-color-arrow;
+					padding-left: 10px;
+					font-size: 1.8rem;
+					color: $nav-color-arrow;
+					text-decoration: none;
+				}
+			}
+
+			.f-nav-button {
+				display: block;
+				box-sizing: border-box;
+				margin: 5px;
+				padding-top: 7px;
+				border: 2px solid $button-color;
+				border-radius: 4px;
+				outline: none;
+
+				&:hover, &:active { background-color: lighten($button-color, 47%); }
+
+				@media screen and (min-width: $breakpoint) {
+					display: none;
+				}
+			}
+
+
+			@media screen and (min-width: $breakpoint) {
+				// .f-nav-list
+				@import "desktop";
+			}
+
+			@media screen and (max-width: $breakpoint) {
+				// .f-nav-list
+				@import "mobile";
+			}
+
+
+		} //.f-nav-content
+
+	} //.f-nav
+
+}

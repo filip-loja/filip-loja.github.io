@@ -1,0 +1,15 @@
+- title: Skúsenosti
+  permalink: /skills
+  image_url: /public/img/icons/skills.png
+
+- title: Projekty
+  permalink: /projects
+  image_url: /public/img/icons/projects.png
+
+- title: Blog
+  permalink: /blog
+  image_url: /public/img/icons/blog.png
+
+- title: Dokumentácia
+  permalink: /documentation
+  image_url: /public/img/icons/documentation.png

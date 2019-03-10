@@ -1,0 +1,39 @@
+@mixin with-prefixes($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+@mixin hover-style {
+	background: $link-color-hover;
+	color: $nav-color-font;
+}
+
+@mixin transition-styles {
+	transition: background-color 0.2s;
+}
+
+@mixin keep-block-height {
+	display: block;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+@mixin keep-flex-height {
+	display: flex;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+@mixin no-margin-padding {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin fake-vertical-padding($height) {
+	content: '';
+	display: block;
+	height: $height;
+}

@@ -1,0 +1,1 @@
+sass --watch resources/scss/app.scss:public/css/app.css --style expanded

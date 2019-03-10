@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <title>{{ page.title }}</title>
+    {%- include page_head.liquid.html -%}
+</head>
+
+<body>
+
+<div class="wpub-wrapper-blank">
+
+    {%- include main_navbar.liquid.html active_id = page.active_id -%}
+
+    <main>
+        <section class="wpub-documentation-title">
+            <h1>{{ page.title }}</h1>
+        </section>
+        {{ content }}
+    </main>
+
+</div>
+
+</body>
+
+</html>

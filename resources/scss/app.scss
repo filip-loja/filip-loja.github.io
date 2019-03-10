@@ -1,0 +1,48 @@
+
+html, body {
+	display: block;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+// https://www.canva.com/learn/100-color-combinations/
+$color-daffodil: #e6df44;
+$color-gray-light: #999999;
+$color-tangerine: #f0810f;
+$color-blueberry: #063852;
+$color-dark-navy: #011A27;
+$color-white: white;
+$color-black: black;
+
+$navbar-height: 50px;
+$height-footer: 60px;
+
+@import "layout-page";
+@import "layout-blog";
+@import "layout-index";
+@import "layout-blank";
+@import "nav/nav";
+@import "footer";
+@import "skills";
+@import "columns";
+@import "projects";
+@import "assignment";
+@import "blog";
+
+
+$profile-image-height: 300px;
+$container-padding: 0 50px 30px 50px;
+$container-max-width: 800px;
+$container-border: 5px solid $color-daffodil;
+
+
+.wpub-index-wrapper {
+	background-color: $color-dark-navy;
+	background-image: url('../img/bg.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: top center;
+	display: block;
+	width: 100%;
+	min-height: 100%;
+}

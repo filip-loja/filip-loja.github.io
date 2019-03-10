@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <title>{{ page.title }}</title>
+    {%- include page_head.liquid.html -%}
+    <link rel="stylesheet" type="text/css" href="/public/css/normalize.css" />
+</head>
+
+<body>
+
+
+
+
+<div class="wpub-wrapper">
+
+    {%- include main_navbar.liquid.html active_id = page.active_id -%}
+
+    <div class="wpub-wrapper-blog">
+
+        <div class="wpub-wrapper-blog-recent">
+            <h2>Najnovšie príspevky</h2>
+            <ul>
+                {% for post in site.posts limit:5 %}
+                    <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="wpub-wrapper-blog-title">
+            <h1>{{ page.title }}</h1>
+            <h2>{{ page.date | date_to_string }}</h2>
+        </div>
+
+        <div class="wpub-wrapper-blog-content">
+            {{ content }}
+        </div>
+
+        <div class="wpub-page-navigation">
+            {% if page.next.url %}
+                <a class="wpub-next" href="{{page.next.url}}">&lt;&lt; {{page.next.title}}</a>
+            {% endif %}
+            {% if page.previous.url %}
+                <a class="wpub-prev" href="{{page.previous.url}}">{{page.previous.title}} &gt;&gt;</a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="footer-placeholder"></div>
+</div>
+{%- include page_footer.liquid.html -%}
+
+
+</body>
+
+</html>

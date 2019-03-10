@@ -1,0 +1,61 @@
+
+.wpub-blog {
+	max-width: 900px;
+	margin: 0 auto;
+
+	.wpub-blog-link {
+		display: block;
+		text-decoration: none;
+		color: $color-black;
+		margin-bottom: 25px;
+		padding: 20px;
+
+		&:hover {
+			$color: darken($color-tangerine, 20%);
+			text-decoration: none;
+			color: $color;
+			h2 { color: $color; }
+		}
+
+		h2 {
+			text-align: left;
+			font-size: 26px;
+			padding: 0 0 5px;
+		}
+
+		h3 {
+			font-size: 16px;
+			text-align: left;
+			font-weight: 100;
+			padding-bottom: 7px;
+		}
+
+		p {
+			font-style: italic;
+		}
+	}
+
+	.wpub-paginator {
+		display: flex;
+		justify-content: center;
+		border-top: 1px solid $color-gray-light;
+		padding-top: 15px;
+		user-select: none;
+
+		a {
+			text-decoration: none;
+			&:hover {
+				color: $color-blueberry;
+			}
+
+			&.disabled {
+				color: $color-gray-light;
+				cursor: default;
+			}
+		}
+
+		.wpub-paginator-splitter {
+			padding: 0 20px;
+		}
+	}
+}

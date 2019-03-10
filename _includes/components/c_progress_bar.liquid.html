@@ -1,0 +1,13 @@
+<div class="wpub-skill-wrapper">
+
+    <div class="wpub-skill-image">
+        <img src="{{ include.img }}" alt="{{ include.name | downcase }}" title="{{ include.name }}" />
+    </div>
+    <div class="wpub-skill-progress-wrapper">
+        <span class="wpub-skill-label">{{ include.name }}</span>
+            <span class="wpub-skill">
+            <span class="wpub-skill-progress" data-progress="{{ include.progress }}"></span>
+        </span>
+    </div>
+
+</div>

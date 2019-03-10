@@ -1,0 +1,43 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.f-nav-brand {
+	font-family: Verdana, sans-serif;
+}
+
+.wpub-wrapper-blank {
+
+	main {
+		padding: 20px 40px;
+		font-family: Verdana, sans-serif;
+
+		h1 {
+			font-size: 28px;
+		}
+
+		h2 {
+			font-size: 20px;
+			border-top: 1px solid black;
+			padding-top: 10px;
+		}
+
+		a {
+			color: #063852;
+			&:hover { color: lighten(#063852, 40%) }
+		}
+
+		.highlighter-rouge {
+			background-color: #fbe5e1;
+			padding: 2px 4px;
+			border-radius: 4px;
+		}
+
+		ul li {
+			padding-bottom: 7px;
+		}
+
+	}
+
+}

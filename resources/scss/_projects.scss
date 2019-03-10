@@ -1,0 +1,36 @@
+
+.wpub-projects {
+	$border-color: $color-gray-light;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	grid-gap: 30px;
+
+	.wpub-project {
+		display: block;
+		border: 1px solid $border-color;
+		border-radius: 8px;
+		overflow: hidden;
+
+		.wpub-project-image {
+			display: block;
+			width: 100%;
+			height: 200px;
+			background-size: cover;
+			background-position: center center;
+			background-image: url(https://via.placeholder.com/400x240);
+			border-bottom: 1px solid $border-color;
+		}
+
+		.wpub-project-title {
+			padding: 20px;
+		}
+
+		.wpub-project-description {
+			padding: 0 20px 20px 20px;
+			text-align: center;
+			line-height: 1.5;
+		}
+	}
+
+}

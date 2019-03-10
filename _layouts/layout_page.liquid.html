@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <title>{{ page.title }}</title>
+    {%- include page_head.liquid.html -%}
+    <link rel="stylesheet" type="text/css" href="/public/css/normalize.css" />
+</head>
+
+<body>
+
+<div class="wpub-wrapper">
+
+    {%- include main_navbar.liquid.html active_id = page.active_id -%}
+
+    <div class="wpub-cover-image">
+        <div class="wpub-page-title">
+            <h1>{{ page.title }}</h1>
+        </div>
+    </div>
+
+    <section class="wpub-container">
+        {{ content }}
+    </section>
+
+    <div class="footer-placeholder"></div>
+
+</div>
+{%- include page_footer.liquid.html -%}
+
+</body>
+
+</html>

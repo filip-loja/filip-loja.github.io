@@ -1,0 +1,23 @@
+$content-width: 1200px;
+$breakpoint: 769px;
+
+$nav-height: 50px;
+$nav-z-index: 10;
+$nav-color-background: black;
+$nav-color-font: white;
+$nav-color-arrow: $color-tangerine;
+$nav-color-border: $color-blueberry;
+$nav-color-highlight: $color-tangerine;
+
+$color-separator: rgba(0,0,0,0.05);
+
+$link-color-hover: $color-blueberry;
+$link-padding: 30px;
+$link-padding-mobile: 15px;
+$link-font-size: 11pt;
+$link-separator-mobile: 1px solid $color-separator;
+
+$subnav-arrow-padding: $link-padding / 2;
+
+$font-family: 'Roboto', sans-serif;
+$button-color: darken(white, 60%);

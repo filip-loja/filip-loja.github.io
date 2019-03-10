@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <title>{{ page.title }}</title>
+    {%- include page_head.liquid.html -%}
+    <link rel="stylesheet" type="text/css" href="/public/css/normalize.css" />
+</head>
+
+<body>
+
+<div class="wpub-index-wrapper">
+
+    {%- include main_navbar.liquid.html active_id = page.active_id -%}
+
+    <main class="wpub-index-container1">
+
+        <div class="wpub-index-image">
+            <img class="wpub-index-profile-image" src="/public/img/profile.jpg" title="Filip Loja" alt="filip loja profile image">
+        </div>
+
+        <div class="wpub-index-text">
+            {{ content }}
+        </div>
+
+        {%- assign links = site.data.layouts.layout_index -%}
+        <div class="wpub-index-links">
+            {%- for link in links -%}
+                {%-
+                    include components/c_skill_icon.liquid.html
+                    title = link.title
+                    permalink = link.permalink
+                    img = link.image_url
+                -%}
+            {%- endfor -%}
+        </div>
+
+    </main>
+    <div class="footer-placeholder"></div>
+
+
+
+</div>
+{%- include page_footer.liquid.html -%}
+
+</body>
+
+</html>

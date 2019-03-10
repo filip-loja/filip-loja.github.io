@@ -1,0 +1,77 @@
+
+.wpub-skill-wrapper {
+	$color-border: lighten($color-gray-light, 20%);
+	$color-highlight: $color-daffodil;
+	$color-empty: darken($color-white, 3%);
+	$border-radius: 15px;
+
+	display: flex;
+	align-items: center;
+	width: 100%;
+
+	height: 100px;
+	margin-bottom: 30px;
+
+	.wpub-skill-image {
+		display: table;
+		width: 100px;
+		height: 100px;
+		padding: 10px;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	.wpub-skill-progress-wrapper {
+		width: calc(100% - 100px);
+		padding-left: 15px;
+		padding-bottom: 20px;
+	}
+
+	.wpub-skill-label {
+		display: inline-block;
+		font-weight: bold;
+		font-size: 16px;
+		padding-bottom: 3px;
+	}
+
+	.wpub-skill {
+		display: block;
+		width: 100%;
+		height: 35px;
+		background-color: $color-empty;
+		border: 1px solid $color-border;
+		border-radius: $border-radius;
+		overflow: hidden;
+
+		.wpub-skill-progress {
+			display: block;
+			height: 100%;
+			width: 50%;
+			background-color: $color-highlight;
+			border-radius: $border-radius;
+
+			&:after {
+				content: attr(data-progress) "%";
+				text-align: right;
+				display: block;
+				height: 100%;
+				font-size: 14px;
+				padding-right: 12px;
+				line-height: 230%;
+				font-style: italic;
+			}
+		}
+
+		@for $i from 1 through 100 {
+			.wpub-skill-progress[data-progress="#{$i}"]{
+				width: #{$i + 0%};
+			}
+		}
+	}
+
+}

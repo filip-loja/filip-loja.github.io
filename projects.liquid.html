@@ -1,0 +1,18 @@
+---
+title: Projekty
+permalink: /projects
+layout: layout_page.liquid
+active_id: 3
+---
+
+{%- assign db = site.data.pages.projects -%}
+{%- assign img_path = '/public/img/projects/' -%}
+
+<section class="wpub-projects">
+
+    {%- for project in db  -%}
+        {%- assign img = img_path | append: project.img -%}
+        {%- include components/c_project.liquid.html title = project.title img = img text = project.text -%}
+    {%- endfor -%}
+
+</section>

@@ -1,0 +1,97 @@
+
+.wpub-index-container1 {
+	$container-max-width: 1000px;
+	$container-background-color: transparentize($color-white, 0.05);
+
+	$icon-link-padding: 15px;
+	$icon-link-margin: 25px;
+
+	font-size: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		"image text"
+		"links links"
+	;
+	grid-gap: 35px;
+	background-color: $container-background-color;
+	max-width: $container-max-width;
+	margin: 50px auto 50px;
+	padding: 40px;
+	border-radius: 15px;
+	border: 1px solid $color-gray-light;
+
+	> div {
+		display: block;
+	}
+
+	// =================================================================================================================
+	.wpub-index-image {
+		grid-area: image;
+		.wpub-index-profile-image {
+			width: 400px;
+			display: block;
+			border-radius: 15px;
+		}
+	}
+
+	// =================================================================================================================
+	.wpub-index-text {
+		grid-area: text;
+		font-size: 2em;
+		line-height: 1.5;
+
+		h1 {
+			font-weight: 300;
+			padding-bottom: 15px;
+			color: $color-blueberry;
+		}
+
+		p {
+			font-weight: 100;
+		}
+	}
+
+	// =================================================================================================================
+	.wpub-index-links {
+		grid-area: links;
+		display: flex;
+		flex-flow: row wrap;
+		margin-left: -1 * $icon-link-margin;
+		margin-right: -1 * $icon-link-margin;
+
+		> a {
+			width: 1%;
+			flex: 1 1 150px;
+			display: block;
+			border: 1px solid $color-gray-light;
+			border-radius: 10px;
+			padding: $icon-link-padding;
+			margin: $icon-link-margin $icon-link-margin 0 $icon-link-margin;
+			text-decoration: none;
+			color: $color-black;
+			transition: all 0.2s;
+
+			&:hover {
+				background-color: transparentize($color-daffodil, 0.5);
+				border-color: darken($color-daffodil, 20%);
+			}
+
+			img {
+				display: block;
+				width: 70%;
+				margin: 0 auto;
+				opacity: 0.7;
+			}
+
+			span {
+				display: block;
+				width: 100%;
+				text-align: center;
+				font-size: 2.2em;
+				font-weight: 200;
+				padding-top: 10px;
+			}
+		}
+	}
+}

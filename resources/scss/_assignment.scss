@@ -1,0 +1,16 @@
+
+.wpub-assignment {
+	padding: 70px 20px;
+	font-size: 26px;
+	text-decoration: none !important;
+	text-align: center;
+	border: 1px solid $color-gray-light !important;
+	color: $color-black !important;
+	font-weight: 100;
+	transition: all 0.2s;
+
+	&:hover {
+		background-color: transparentize($color-daffodil, 0.5);
+		border-color: darken($color-daffodil, 20%);
+	}
+}

@@ -1,0 +1,194 @@
+.f-nav-list {
+
+	@mixin active-style($link-sub-nav: false, $non-link-sub-nav: false) {
+		&:before {
+			content: "\2022  \2022  \2022  \2022";
+			display: block;
+			position: absolute;
+			color: $nav-color-highlight;
+			width: 100%;
+			bottom: -3px;
+			left: 0;
+			text-align: center;
+			font-weight: bold;
+			letter-spacing: 1px;
+			white-space: nowrap;
+
+			// if the subnav link is a link itself
+			@if ($link-sub-nav) {
+				padding-left: $link-padding !important;
+			}
+
+			// if the subnav link only toggles the subnav
+			@if ($non-link-sub-nav) {
+				padding-right: $subnav-arrow-padding;
+			}
+		}
+	}
+
+	@include keep-flex-height;
+	@include no-margin-padding;
+
+	> li {
+		@include keep-flex-height;
+		@include transition-styles;
+
+		flex-wrap: wrap;
+		align-items: center;
+		list-style-type: none;
+		position: relative;
+
+
+
+		a {
+			@include transition-styles;
+			&:hover { @include hover-style; }
+
+			@include keep-flex-height;
+			justify-content: center;
+			padding: 0 $link-padding;
+			text-decoration: none;
+			color: $nav-color-font;
+			font-family: unquote($font-family);
+			font-size: $link-font-size;
+
+			flex-flow: column wrap;
+			position: relative;
+
+			&.is-active {
+				background-color: $link-color-hover;
+				@include active-style;
+			}
+		}
+
+		&.f-sub-nav {
+
+			justify-content: flex-start;
+			height: auto;
+
+			> span {
+				@include keep-flex-height;
+				@include transition-styles;
+				&:hover { @include hover-style; }
+
+				&.is-active {
+					background-color: $link-color-hover;
+					& > a:first-child {
+						@include active-style(true);
+					}
+
+					& > span:first-child {
+						@include active-style(false, true);
+					}
+				}
+
+				> a {
+					float: left;
+					padding-right: 0;
+				}
+
+				> a + .f-sub-nav-toggle {
+					padding-left: 0;
+				}
+
+				.f-sub-nav-toggle {
+					@include keep-flex-height;
+					@include with-prefixes(user-select, none);
+					cursor: pointer;
+					align-items: center;
+					font-family: unquote($font-family);
+					padding-left: $link-padding;
+
+
+					&:hover:after { color: $nav-color-arrow; }
+
+					&.is-active:after {
+						transform: rotate(180deg);
+						color: $nav-color-arrow;
+					}
+
+					// subnav arrow in link
+					&:after {
+						content: '\25BC';
+
+						@include keep-flex-height;
+						color: transparentize($nav-color-font, 0.8);
+						padding-right: $subnav-arrow-padding;
+						padding-left: $subnav-arrow-padding;
+						transition: transform 0.2s, color 0.2s;
+						align-items: center;
+					}
+				}
+
+				&:after {
+					content: '';
+					display: block;
+					clear: both;
+				}
+
+			}
+
+
+
+		}
+
+		.f-nav-dropdown {
+			@include no-margin-padding;
+
+			&:before { @include fake-vertical-padding(8px); }
+			&:after  { @include fake-vertical-padding(8px); }
+
+			display: none;
+			box-shadow: 0 1px 3px $nav-color-border;
+			position: absolute;
+			top: $nav-height;
+			left: -1px;
+			z-index: $nav-z-index;
+			background-color: $nav-color-background;
+			white-space: nowrap;
+			overflow: hidden;
+			border: 1px solid $nav-color-highlight;
+			border-top: none;
+
+
+			&.f-nav-dropdown-right {
+				left: unset;
+				right: 0;
+			}
+
+			li {
+				@include no-margin-padding;
+				display: block;
+				list-style-type: none;
+
+				&.f-nav-group-label {
+					background-color: $color-separator;
+					padding: 4px 20px;
+					font-family: $font-family;
+					margin: 5px 0;
+
+					&:first-child { margin-top: 0 !important; }
+				}
+
+				&.f-nav-group-separator {
+					background-color: $color-separator;
+					height: 1px;
+					margin: 5px 0;
+				}
+
+				&.f-nav-indented a {
+					padding-left: 30px;
+				}
+
+				a {
+					display: block;
+					padding: 8px 20px;
+				}
+			}
+
+		} //.f-nav-dropdown
+
+
+	}
+
+} //f-nav-list

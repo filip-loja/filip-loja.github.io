@@ -1,0 +1,34 @@
+---
+title: Skúsenosti
+permalink: /skills
+layout: layout_page.liquid
+active_id: 2
+---
+
+{%- assign db = site.data.pages.skills -%}
+{%- assign img_path = '/public/img/language_logos/' -%}
+
+
+<section class="wpub-col-2">
+
+    <div>
+        <h2>{{ db.languages.title }}</h2>
+        <br>
+        {%- for item in db.languages.items -%}
+            {%- assign img = img_path | append: item.img -%}
+            {%- include components/c_progress_bar.liquid.html name = item.name progress = item.progress img = img -%}
+        {%- endfor -%}
+    </div>
+
+    <div>
+        <h2>{{ db.technologies.title }}</h2>
+        <br>
+        {%- for item in db.technologies.items -%}
+            {%- assign img = img_path | append: item.img -%}
+            {%- include components/c_progress_bar.liquid.html name = item.name progress = item.progress img = img -%}
+        {%- endfor -%}
+    </div>
+
+</section>
+
+

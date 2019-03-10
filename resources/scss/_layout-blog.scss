@@ -1,0 +1,115 @@
+
+.wpub-wrapper-blog {
+	$padding: 30px;
+	$margin: 50px;
+	$border-radius: 15px;
+
+	display: grid;
+	grid-gap: 20px;
+	align-items: start;
+	max-width: 1200px;
+	margin: $margin auto $margin;
+	
+	grid-template-areas:
+		'recent title title'
+		'recent blog_content blog_content'
+		'. blog_nav blog_nav'
+	;
+
+	.wpub-wrapper-blog-recent {
+		grid-area: recent;
+		background-color: transparentize($color-white, 0.05);
+		padding: $padding;
+		border-radius: $border-radius;
+
+		h2 {
+			font-size: 20px;
+			font-weight: 300;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid $color-gray-light;
+		}
+
+		ul li {
+			list-style-type: none;
+			a {
+				color: $color-blueberry;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			padding-bottom: 8px;
+		}
+	}
+
+	.wpub-wrapper-blog-title {
+		grid-area: title;
+		background-color: transparentize($color-white, 0.05);
+		border-top-left-radius: $border-radius;
+		border-top-right-radius: $border-radius;
+		text-align: center;
+
+		h1 {
+			font-weight: 100;
+			font-size: 36px;
+			color: $color-blueberry;
+		}
+
+		h2 {
+			font-weight: 100;
+		}
+
+
+		padding: $padding;
+	}
+
+	.wpub-wrapper-blog-content {
+		grid-area: blog_content;
+		background-color: transparentize($color-white, 0.05);
+		padding: $padding;
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+		font-size: 18px;
+		line-height: 1.8;
+		text-align: justify;
+
+		ul {
+			padding-left: 35px;
+			li {
+				padding-bottom: 15px;
+			}
+		}
+
+		h2 {
+			font-size: 22px;
+			margin-top: 15px;
+		}
+
+		img[src*='#full-width'] {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.wpub-page-navigation {
+		grid-area: blog_nav;
+		background-color: transparentize($color-white, 0.05);
+		display: flex;
+		justify-content: space-between;
+		border-radius: $border-radius;
+
+		a {
+			display: block;
+			width: 1%;
+			flex: 1 1 50px;
+			padding: 40px $padding;
+			text-decoration: none;
+			color: $color-tangerine;
+
+			&:hover { color: $color-blueberry; }
+			&.wpub-prev { text-align: right; }
+		}
+	}
+
+}

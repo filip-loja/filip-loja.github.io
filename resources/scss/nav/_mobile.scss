@@ -1,0 +1,198 @@
+.f-nav-list {
+
+	display: none;
+	box-sizing: border-box;
+	width: 100%;
+	background-color: $nav-color-background;
+	position: absolute;
+	top: $nav-height;
+	left: 0;
+	box-shadow: 0 1px 3px $nav-color-border;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: calc(100vh - #{$nav-height});
+	//max-height: calc(100vh - #{$nav-height} - 56px);
+
+
+	@include no-margin-padding;
+
+	&:before { @include fake-vertical-padding(10px); }
+	&:after  { @include fake-vertical-padding(10px); }
+
+	> *:first-child {
+		a, span {
+			border-top: none !important;
+		}
+
+		span {
+			margin-top: -10px !important;
+		}
+	}
+
+	> li {
+		display: block;
+		list-style-type: none;
+		position: relative;
+		width: 100%;
+
+		> a { border-top: $link-separator-mobile; }
+
+		a {
+			@include transition-styles;
+			&:active { @include hover-style; }
+
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+			align-items: center;
+			padding: $link-padding-mobile $link-padding;
+			text-decoration: none;
+			color: $nav-color-font;
+			font-family: unquote($font-family);
+			font-size: $link-font-size;
+
+			&.is-active {
+				background-color: $link-color-hover;
+			}
+		}
+
+
+		&.f-sub-nav {
+
+			justify-content: flex-start;
+			height: auto;
+
+			> span {
+				@include keep-flex-height;
+
+				@include transition-styles;
+				&:active { @include hover-style; }
+
+				align-items: center;
+				border-top: $link-separator-mobile;
+
+				&.is-active {
+					background-color: $link-color-hover;
+				}
+
+				> a {
+					float: left;
+					padding-right: 0;
+				}
+
+				/// sub-nav toggle element which contains a link
+				> a + .f-sub-nav-toggle {
+					padding-left: 0;
+
+					&:after {
+						border-left: $link-separator-mobile;
+					}
+
+					&.is-active:after {
+						border-right: $link-separator-mobile;
+					}
+				}
+
+				/// sub-nav toggle element which does not contain a link
+				/// and only triggers displaying of the sub-nav content
+				> *:first-child.f-sub-nav-toggle {
+					width: 100%;
+					position: relative;
+					padding-top: $link-padding-mobile;
+					padding-bottom: $link-padding-mobile;
+
+					&:after {
+						position: absolute;
+						right: 0;
+					}
+				}
+
+				> .f-sub-nav-toggle {
+					@include keep-flex-height;
+					@include with-prefixes(user-select, none);
+
+					cursor: pointer;
+					align-items: center;
+					font-family: unquote($font-family);
+					padding-left: $link-padding;
+
+
+					&.is-active:after {
+						transform: rotate(180deg);
+						color: $nav-color-arrow;
+						border-left: none;
+					}
+
+					&:active:after { color: $nav-color-arrow; }
+
+					&:after {
+						content: '\25BC';
+						color: transparentize($nav-color-font, 0.8);
+						align-items: center;
+						cursor: pointer;
+						padding: $link-padding-mobile $link-padding;
+						transition: transform 0.2s, color 0.2s;
+					}
+
+				}
+
+				&:after {
+					content: '';
+					display: block;
+					clear: both;
+				}
+
+			}
+
+		}
+
+
+
+		.f-nav-dropdown {
+			@include no-margin-padding;
+
+			&:before { @include fake-vertical-padding(8px); }
+			&:after  { @include fake-vertical-padding(8px); }
+
+			display: none;
+			padding: 0;
+			box-shadow: 0 0 3px $nav-color-border inset;
+			border-top: 1px solid $nav-color-border;
+			border-bottom: 1px solid $nav-color-border;
+			background-color: darken($nav-color-background, 3%);
+			white-space: nowrap;
+
+			li {
+				@include no-margin-padding;
+				display: block;
+				list-style-type: none;
+
+				&.f-nav-group-label {
+					background-color: $color-separator;
+					padding: 4px 20px;
+					font-family: unquote($font-family);
+					margin: 5px 0;
+
+					&:first-child { margin-top: 0 !important; }
+				}
+
+				&.f-nav-group-separator {
+					background-color: $color-separator;
+					height: 1px;
+					margin: 5px 0;
+				}
+
+				&.f-nav-indented a {
+					padding-left: 30px;
+				}
+
+				a { display: block; }
+			}
+
+		} //.f-nav-dropdown
+
+
+	}
+
+} //f-nav-list

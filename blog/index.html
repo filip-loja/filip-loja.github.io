@@ -1,0 +1,32 @@
+---
+title: Blog
+layout: layout_page.liquid
+active_id: 4
+---
+
+<div class="wpub-blog">
+
+	{%- for post in paginator.posts -%}
+	<a class="wpub-blog-link" href="{{ post.url }}">
+		<h2>{{ post.title }}</h2>
+		<h3>{{ post.date | date_to_string }}</h3>
+		<p>{{ post.content | truncatewords: 29 }}</p>
+	</a>
+	{%- endfor -%}
+
+	<div class="wpub-paginator">
+		{%- if paginator.previous_page_path -%}
+			<a href="{{ paginator.previous_page_path }}">&lt;&lt; Novšie príspevky</a>
+		{%- else -%}
+			<a class="disabled">&lt;&lt; Novšie príspevky</a>
+		{%- endif -%}
+		<span class="wpub-paginator-splitter">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+		{%- if paginator.next_page_path -%}
+			<a href="{{ paginator.next_page_path }}">Staršie príspevky &gt;&gt;</a>
+		{%- else -%}
+			<a class="disabled">Staršie príspevky &gt;&gt;</a>
+		{%- endif -%}
+
+	</div>
+
+</div>

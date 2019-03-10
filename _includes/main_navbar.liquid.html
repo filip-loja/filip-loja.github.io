@@ -1,0 +1,54 @@
+<nav id="main-menu" class="f-nav">
+    <div class="f-nav-content">
+
+        <div class="f-nav-brand">
+            <a href="{{site.data.navigation.home}}">
+                <span>Filip Loja</span>
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="f-nav-button hamburger hamburger--collapse" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+
+        <ul class="f-nav-list" data-breakpoint="769">
+            {% for link in site.data.navigation.items %}
+                {% assign current = nil %}
+                {% if link.id == include.active_id %}
+                    {% assign current = 'is-active' %}
+                {% endif %}
+
+                {% if link.submenu == nil %}
+
+                    <li><a class="{{current}}" href="{{link.permalink}}">{{link.label}}</a></li>
+
+                {% else %}
+
+                    <li class="f-sub-nav">
+                        {% if link.permalink %}
+                            <span class="{{current}}">
+                                <a href="{{link.permalink}}">{{link.label}}</a>
+                                <span class="f-sub-nav-toggle"></span>
+                            </span>
+                        {% else %}
+                            <span class="{{current}}">
+                                <span class="f-sub-nav-toggle">{{link.label}}</span>
+                            </span>
+                        {% endif %}
+                        <ul class="f-nav-dropdown">
+                            {% for sub_link in link.submenu %}
+                                <li><a href="{{sub_link.permalink}}">{{sub_link.label}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+
+    </div>
+</nav>
+<div class="f-nav-placeholder"></div>

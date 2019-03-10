@@ -1,0 +1,59 @@
+
+languages:
+    title: "Programovacie jazyky"
+    items:
+        -   name: "JavaScript"
+            progress: 80
+            img: "js.jpg"
+
+        -   name: "PHP"
+            progress: 60
+            img: "php.png"
+
+        -   name: "C"
+            progress: 25
+            img: "c.png"
+
+        -   name: "MySql"
+            progress: 55
+            img: "mysql.png"
+
+        -   name: "HTML"
+            progress: "85"
+            img: "html.svg"
+
+        -   name: "CSS"
+            progress: "80"
+            img: "css.png"
+
+
+technologies:
+    title: "Technológie a frameworky"
+    items:
+        -   name: "Laravel"
+            progress: 75
+            img: "laravel.png"
+
+        -   name: "Yii 2"
+            progress: 65
+            img: "yii2.png"
+
+        -   name: "Angular"
+            progress: 60
+            img: "angular.svg"
+
+        -   name: "Vue.js"
+            progress: 50
+            img: "vue.png"
+
+        -   name: "Sass"
+            progress: 70
+            img: "sass.svg"
+
+        -   name: "GIT"
+            progress: 50
+            img: "git.png"
+
+        -   name: "Jekyll.rb"
+            progress: 60
+            img: "jekyll.png"

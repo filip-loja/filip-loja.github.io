@@ -1,0 +1,7 @@
+<article class="wpub-project">
+    <div class="wpub-project-image" style="background-image: url({{ include.img }})"></div>
+    <h2 class="wpub-project-title">{{ include.title }}</h2>
+    <div class="wpub-project-description">
+        {{ include.text | markdownify }}
+    </div>
+</article>
