@@ -1,6 +1,6 @@
 ---
 title: Zadanie 1
-permalink: /documentation/assignment1
+permalink: /documentation/assignment1.html
 layout: layout_blank.liquid
 active_id: 5
 ---
