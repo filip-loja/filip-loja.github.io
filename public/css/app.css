@@ -265,7 +265,13 @@ html, body {
   padding: 2px 4px;
   border-radius: 4px;
 }
-.wpub-wrapper-blank main ul li {
+.wpub-wrapper-blank main ul li, .wpub-wrapper-blank main ol li {
+  padding-top: 7px;
+}
+.wpub-wrapper-blank main ul li ul, .wpub-wrapper-blank main ol li ul {
+  margin-bottom: 7px;
+}
+.wpub-wrapper-blank main ol > li {
   padding-bottom: 7px;
 }
 

@@ -34,7 +34,15 @@ html, body {
 			border-radius: 4px;
 		}
 
-		ul li {
+		ul li, ol li {
+			padding-top: 7px;
+
+			ul {
+				margin-bottom: 7px;
+			}
+		}
+
+		ol > li {
 			padding-bottom: 7px;
 		}
 
