@@ -1,0 +1,15 @@
+{%- assign dbs = include.dbs -%}
+{%- assign label = include.label -%}
+
+<table class="wpub-ref-table">
+    <tr class="wpub-ref-table-row">
+        <th>{{ label }}</th>
+        <th>Popis</th>
+    </tr>
+    {%- for a in dbs -%}
+        <tr class="wpub-ref-table-row">
+            <td><span class="highlighter-rouge">{{ a.name }}</span></td>
+            <td>{{ a.description | markdownify }}</td>
+        </tr>
+    {%- endfor -%}
+</table>

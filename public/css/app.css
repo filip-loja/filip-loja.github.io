@@ -260,6 +260,9 @@ html, body {
 .wpub-wrapper-blank main a:hover {
   color: #34b0f0;
 }
+.wpub-wrapper-blank main em {
+  color: lightslategrey;
+}
 .wpub-wrapper-blank main .highlighter-rouge {
   background-color: #fbe5e1;
   padding: 2px 4px;
@@ -273,6 +276,47 @@ html, body {
 }
 .wpub-wrapper-blank main ol > li {
   padding-bottom: 7px;
+}
+.wpub-wrapper-blank main .wpub-ref-table {
+  border-collapse: collapse;
+}
+.wpub-wrapper-blank main .wpub-ref-table .wpub-ref-table-row > td,
+.wpub-wrapper-blank main .wpub-ref-table .wpub-ref-table-row > th {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 8px 11px;
+  text-align: left;
+}
+.wpub-wrapper-blank main .wpub-ref-table .wpub-ref-table-row > td p,
+.wpub-wrapper-blank main .wpub-ref-table .wpub-ref-table-row > th p {
+  margin: 0;
+}
+.wpub-wrapper-blank main .wpub-attr-table {
+  border-collapse: collapse;
+}
+.wpub-wrapper-blank main .wpub-attr-table tr td {
+  padding: 5px 10px;
+}
+.wpub-wrapper-blank main .wpub-attr-table tr td:nth-child(2) {
+  white-space: nowrap;
+}
+.wpub-wrapper-blank main .wpub-attr-table tr + tr td {
+  border-top: 1px dashed rgba(0, 0, 0, 0.2);
+}
+.wpub-wrapper-blank main .wpub-attr-extra {
+  padding: 7px 10px 5px 10px;
+  display: block;
+  border-top: 1px dashed rgba(0, 0, 0, 0.2);
+}
+.wpub-wrapper-blank main .wpub-attr-extra:before {
+  content: "+ ";
+  display: inline-block;
+  float: left;
+  padding-right: 8px;
+  color: red;
+}
+.wpub-wrapper-blank main .wpub-required {
+  color: red;
+  font-size: 12px;
 }
 
 html {

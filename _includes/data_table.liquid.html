@@ -1,0 +1,46 @@
+{%- assign dbs = include.dbs -%}
+
+<table class="wpub-ref-table">
+    <tr class="wpub-ref-table-row">
+        <th>Názov elementu </th>
+        <th>Povolený potomkovia</th>
+        <th>Atribúty</th>
+        <th>Popis</th>
+    </tr>
+    {%- for element in dbs -%}
+        <tr class="wpub-ref-table-row">
+            <td><span class="highlighter-rouge">{{ element.name }}</span></td>
+            <td>{{ element.children | markdownify }}</td>
+            <td>
+                {%- if element.attributes.size > 0 -%}
+                    <table class="wpub-attr-table">
+                        {%- for attr in element.attributes -%}
+                            <tr>
+                                <td>
+                                    {%- if attr.required == 1 -%}
+                                        <span class="wpub-required">R</span>
+                                    {%- endif  -%}
+                                </td>
+                                <td><span class="highlighter-rouge">{{ attr.name }}</span></td>
+                                <td>{{ attr.description | markdownify }}</td>
+                            </tr>
+                        {%- endfor -%}
+                    </table>
+                {%- elsif element.attr  -%}
+                    {{ element.attr | markdownify }}
+                {%- else  -%}
+                    {{ '-' }}
+                {%- endif  -%}
+
+                {%- if element.attributes.size > 0 and element.attr -%}
+                    <span class="wpub-attr-extra">
+                        {{ element.attr | markdownify }}
+                    </span>
+                {%- endif  -%}
+
+            </td>
+            <td>{{ element.description | markdownify }}</td>
+        </tr>
+    {%- endfor -%}
+</table>
+<p>Atribúty označené symbolom <span class="wpub-required">R</span> sú povinné</p>

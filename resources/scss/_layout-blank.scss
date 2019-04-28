@@ -28,6 +28,10 @@ html, body {
 			&:hover { color: lighten(#063852, 40%) }
 		}
 
+		em {
+			color: lightslategrey;
+		}
+
 		.highlighter-rouge {
 			background-color: #fbe5e1;
 			padding: 2px 4px;
@@ -44,6 +48,53 @@ html, body {
 
 		ol > li {
 			padding-bottom: 7px;
+		}
+
+		.wpub-ref-table {
+			border-collapse: collapse;
+			.wpub-ref-table-row > td,
+			.wpub-ref-table-row > th {
+				border: 1px solid rgba(0,0,0,0.2);
+				padding: 8px 11px;
+				text-align: left;
+
+				p {
+					margin: 0;
+				}
+
+
+			}
+		}
+
+		.wpub-attr-table {
+			border-collapse: collapse;
+			tr td {
+				padding: 5px 10px;
+			}
+			tr td:nth-child(2) {
+				white-space: nowrap;
+			}
+			tr + tr td {
+				border-top: 1px dashed rgba(0,0,0,0.2);
+			}
+		}
+
+		.wpub-attr-extra {
+			padding: 7px 10px 5px 10px;
+			display: block;
+			border-top: 1px dashed rgba(0,0,0,0.2);
+			&:before {
+				content: "+ ";
+				display: inline-block;
+				float: left;
+				padding-right: 8px;
+				color: red;
+			}
+		}
+
+		.wpub-required {
+			color: red;
+			font-size: 12px;
 		}
 
 	}

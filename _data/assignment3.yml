@@ -1,0 +1,218 @@
+config_base:
+  - name: page-width
+    description: nastavuje šírku jednej stránky
+  - name: page-height
+    description: nastavuje výšku jednej stránky
+  - name: element-space-after
+    description: nastavuje medzeru za elementom
+  - name: column-space-between
+    description: nastavuje medzeru medzi jednotlivými stĺpcami vo viacstĺpcovom rozložení
+  - name: link-color
+    description: nastavuje farbu odkazov
+  - name: link-underlined
+    description: príznak, ktorý nastavuje, či budú odkazy podčiakrnuté
+
+config_pages:
+  - name: font-family
+    description: nastavuje typ fontu pre text, ktorý obsahuje
+  - name: font-size
+    description: nastavuje veľkosť písma
+  - name: font-weight
+    description: nastavuje hrúbku písma
+  - name: text-color
+    description: nstavuje farbu písma
+  - name: text-align
+    description: nastavuje zarovnanie textu
+  - name: background
+    description: nastavuje farbu pozadia
+  - name: line-height
+    description: nastavuje veľkosť riadkovania
+  - name: padding
+    description: nastavuje okraj elementu
+
+config_numbering:
+  - name: state
+    description: príznak, ktorý zadáva, či je zobrazovanie číslej stránok zapnuté alebo vypnuté (*ON* = zapnuté, *OFF* = vypnuté)
+  - name: text-align
+    description: nastavuje, ako budú čísla strán zarovnané (*left*, *right*, *center*)
+
+
+
+page_elements:
+  - name: title-page
+    children: práve jeden element typu `title` a typu `author`
+    description: definuje titulnú stranu vytváranej prezentácie, strana obsahuje názov prezentácie a meno autora
+    attr: všetky atribúty zo skupiny *všeobecných formátovacích atribútov*
+  - name: page
+    children: ľubovolný počet elementov zo skupiny *blokových elementov*
+    description: definuje jednu stranu (prípadne jeden html súbor) vo vytváranej prezentácie
+    attr: všetky atribúty zo skupiny *všeobecných formátovacích atribútov*
+
+inline_elements:
+  - name: bold
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje dôležitý text, text bude zobrazený tučným písmom
+
+  - name: cursive
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje jemne doležitejší dôležitý text, text bude zobrazený kurzívou
+
+  - name: underline
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje zvýraznený text pomocou podčiarknutia
+
+  - name: code
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje text, ktorý ma reprezentovať úrivok zdrojového kódu,  text bude zobrazený *monospace* fontom
+
+  - name: link
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje hypertextový odkaz na zadanú url adresu; formátovanie elementu je možné nastaviť priamo alebo v globálnej konfigurácií
+    attributes:
+      - name: url
+        description: url adresa, na ktorú bude odkaz smerovať
+        required: 1
+      - name: color
+        description: farba, ktorou bude odkaz odlíšený od okolitého textu, má prednosť pred globálnou konfiguráciou, farba sa zapíše pomocou jej názvu (*red*) alebo hexadecimálnou hodnotou (*#fbe5e1*)
+      - name: underline
+        description: príznak, ktorý vyjdaruje či bude odkaz podčiarknutú alebo nie, môže nadobúdať len dve hodnoty - *true* a *false*, predvolená hodnota je *true*
+
+
+  - name: color
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje farbu textu, ktorý obsahuje
+    attributes:
+      - name: value
+        description: typ farby može byť zapísaný pomocou jej názvu (*red*) alebo hexadecimálnou hodnotou (*#fbe5e1*)
+        required: 1
+
+  - name: font
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje typ fontu pre text, ktorý obsahuje
+    attributes:
+      - name: value
+        description: názov požadovaného fontu; napr. *"Arial, sans-serif"*
+        required: 1
+
+  - name: size
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje veľkosť textu, ktorý obsahuje
+    attributes:
+      - name: value
+        description: zadávaná veľkosť fontu, môže mať rôzne jednotky, napr. *"12px"*, *"16pt"* a pod.
+        required: 1
+
+
+
+block_elements:
+  - name: subtitle
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje nadpis druhej úrovne na stránke v prezentácií
+    attr: všetky atribúty zo skupiny *všeobecných formátovacích atribútov*
+
+  - name: text
+    children: všetky elementy zo skupiny *riadkových elementov* a *čistý text*
+    description: definuje jednoduchý textový blok
+    attr: všetky atribúty zo skupiny *všeobecných formátovacích atribútov*
+
+  - name: space
+    children: element je *prázdny!* Nie je povoelný žiaden potomok
+    description: definuje jednoduchý oddeľovač medzi dvoma blokovými elementami
+    attributes:
+      - name: height
+        description: definuje veľkosť medzeri, ktorú oddeľovač vytvorí medzi elementami, môže byť zadaná v rôznych jednotkách, napr. *"12px"*, *"16pt"* a pod.
+        required: 1
+
+
+elm_layout:
+  - name: layout
+    children: ľubovolný počet elementov `column`
+    description: definuje obaľovací element pre vytvorenie viacstĺpcového rozloženia stránky (*layout*)
+    attributes:
+      - name: height
+        description: definuje výšku vytvorených stĺpcov, zadáva sa ako celé číslo z intervalu *<0, 100>*, ktoré reprezentuje percento z celkovej výšky stránky
+        required: 1
+      - name: space-between
+        description: veľkosť medzeri medzi jednotlivými stĺpcami, môže byť zadaná v rôznych jednotkách, napr. *"12px"*, *"16pt"* a pod.
+  - name: column
+    children: ľubovolný počet elementov zo skupiny *blokových elementov*
+    description: definuje jeden stĺpec vo viacstĺpcovom rozložení stránky
+    attributes:
+      - name: width
+        description: definuje šírku aktuálneho stĺpca, zadáva sa ako celé číslo z intervalu *<0, 100>*, ktoré reprezentuje percento z celkovej šírky rodičovského elementu `layout`
+        required: 1
+
+
+
+elm_table:
+  - name: table
+    children: ľubovolný počet elementov `row`
+    description: predstavuje koreňový element pre tabuľku
+    attr: všetky atribúty zo skupiny *všeobecných formátovacích atribútov*
+    attributes:
+      - name: border-width
+        description: definuje hrúbku orámovania tabuľky, zadáva sa ako celé číslo bez jednotky
+      - name: border-color
+        description: definuje farbu orámovania tabuľky, typ farby može byť zapísaný pomocou jej názvu (*red*) alebo hexadecimálnou hodnotou (*#fbe5e1*)
+  - name: row
+    children: ľubovolný počet elementov `cell`
+    description: predstavuje jeden riadok v tabuľke
+    attributes:
+      - name: head
+        description: príznak, kotrý keď nadobudne hodnotu *true*, tak sa aktuálny riadok zvýrazní, predvolenou hodnotou je *false*
+  - name: cell
+    children: ľubovolný počet elementov zo skupiny *riadkových elementov* a *čistý text*
+    description: predstavuje jeden riadok v tabuľke
+
+
+elm_list:
+  - name: list
+    children: ľubovolný počet elementov `item`
+    description: predstavuje koreňový element pre zoznam, zoznam môže byť *usporiadaný* (odrážky sú čísla) alebo *neusporiadaný* (odkrážky sú guličky)
+    attr: všetky atribúty zo skupiny *všeobecných formátovacích atribútov*
+    attributes:
+      - name: type
+        description: definuje typ zoznamu (*usporiadaný / neusporiadaný*), môže nadobúdať len dve hodnoty - *unordered* a *ordered*, predvolenou hodnotou je *unordered*
+  - name: item
+    children: ľubovolný počet elementov zo skupiny *riadkových elementov*, ľubovolný počet elementov `list` a *čistý text*
+    description: predstavuje jednu polo6ku v zozname
+
+
+elm_image:
+  - name: image
+    children: elementy `src` a `caption` v tomto poradí, element `caption` je nepovinný
+    description: predstavuje koreňový element pre vloženie obrázka do stránky
+    attributes:
+      - name: width
+        description: predstavuje šírku obrázka, šírka môže byť zadaná v rôznych jednotkách, napr. *"100px"*, *"160pt"* a pod.
+      - name: height
+        description: predstavuje výšku obrázka, výška môže byť zadaná v rôznych jednotkách, napr. *"100px"*, *"160pt"* a pod.
+      - name: align
+        description: predsatvuje zarovnanie obrázka na stránke, môže nadobúdať hodnoty - *left*, *center* a *right*
+      - name: padding
+        description: definuje okraj obrázka - oblasť medzi obrázkom a ostatnými elementami
+  - name: src
+    children: "*čistý text*"
+    description: predstavuje cestu k zadanému obrázku v súborovom systéme
+  - name: caption
+    children: "*čistý text*"
+    description: predstavuje popis, ktorý sa zobrazí dole pod obrázkom
+
+
+attributes:
+  - name: font-family
+    description: nastavuje font písma pre zvolený element, zadáva sa ako string, napr. *"Arial, sans-serif"*
+  - name: font-size
+    description: nastavuje veľkosť písma pre zvolený element, veľkosť fontu môže byť v rôznych jednotkách, napr. *"12px"*, *"16pt"* a pod.
+  - name: font-weight
+    description: nastavuje hrúbku písma pre zvolený element, povolené hodnoty sú - *normal* a *bold*
+  - name: text-color
+    description: nastavuje farbu písman pre zvolený element, typ farby može byť zapísaný pomocou jej názvu (*red*) alebo hexadecimálnou hodnotou (*#fbe5e1*)
+  - name: text-align
+    description: nastavuje zarovananie písma vo zvolenom elemente, povolené hodnoty sú - *left*, *right*, *center* a *justify*
+  - name: background
+    description: nastavuje farbu pozadia pre zvolený element, typ farby može byť zapísaný pomocou jej názvu (*red*) alebo hexadecimálnou hodnotou (*#fbe5e1*)
+  - name: line-height
+    description: nastavuje riadkovanie v zvolenom elemente, zdáva sa ako kladné desatinné číslo
+  - name: padding
+    description: nastavuje okraje okolo zvoleného elementu

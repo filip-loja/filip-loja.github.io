@@ -1,0 +1,108 @@
+---
+title: Zadanie 3
+permalink: /documentation/assignment3.html
+layout: layout_blank.liquid
+active_id: 5
+---
+
+{%- assign db = site.data.assignment3 -%}
+
+{{ '**Github:** [https://filip-loja.github.io/](https://filip-loja.github.io/)' | markdownify }}
+
+<h2>Definícia typu dokumentu</h2>
+<p>Na definúciu typu dokumentu sme použili jazyk *XML Schema*.<br>Všetky xml elementy, ktoré je možné v prezentácií použiť sú definované v súbore <span class="highlighter-rouge">schema.xsd</span>.<br>
+    Nami vytvorené elementy sme rozdelili do nasledujúcich skupín:
+</p>
+
+<ul>
+    <li><strong>Koreňový element</strong> - predsatvuje koreň celého xml dokumentu</li>
+    <li><strong>Skupina elementov pre definovanie strán</strong> - predstavuje elementy, pomocou ktorých je možné vytvoriť jednu stranu vo výslednom PDF súbore resp. jeden samostatný HTML súbor</li>
+    <li><strong>Skupina blokových elementov</strong> - zostavujú hlavný obsah jednotlivých strán v prezentácií</li>
+    <li><strong>Skupina riadkových elementov</strong> - modifikujú text, ktorý obsahujú blokové elementy</li>
+</ul>
+
+<p>Zobrazenie niektorých elementov môže byť upravené pomocou formátovacích atribútov, ktoré sú definované v skupine <em>všeobecných formátovacích atribútov</em>. Elementy, pri ktorých je to uvedené, môžu používať všetky atribúty z tejto skupiny.</p>
+
+<br>
+<h2>Generovanie dokumentov</h2>
+<p>Prezentáciu je možné vygenerovať vo formáte <em>PDF</em> a <em>HTML</em>, pomocou nasledujúcich skriptov:</p>
+<ul>
+    <li><strong>PDF</strong> - <span class="highlighter-rouge"> transform_pdf.bat </span></li>
+    <li><strong>HTML</strong> - <span class="highlighter-rouge"> transform_html.bat </span></li>
+</ul>
+
+<br>
+<h2>Globálna konfigurácia</h2>
+<p>Zobrazovanie jednotlivých elementov je možné upraviť pomocou globálneho konfiguračného súboru <span class="highlighter-rouge">config.xsl</span></p>
+
+<h3>Jednoduché parametre</h3>
+{%- include data_table_simple.liquid.html dbs = db.config_base label = "Názov parametra" -%}
+
+<br>
+<h3>Základné formátovacie parametre</h3>
+<p>Dajú sa aplikovať samostatne na nasledujúce elementy:
+    <span class="highlighter-rouge">page</span>,
+    <span class="highlighter-rouge">title-page</span>,
+    <span class="highlighter-rouge">title</span> (samostatne pre <span class="highlighter-rouge">page</span> aj <span class="highlighter-rouge">title-page</span>),
+    <span class="highlighter-rouge">subtitle</span>,
+    <span class="highlighter-rouge">author</span>
+</p>
+{%- include data_table_simple.liquid.html dbs = db.config_pages label = "Názov parametra" -%}
+
+<br>
+<h3>Nastavenie číslovania stránok</h3>
+<p>Na titulnej stránke (element <span class="highlighter-rouge">title-page</span>) sa číslovanie nezobrazuje ani keď je zapnuté</p>
+{%- include data_table_simple.liquid.html dbs = db.config_numbering label = "Názov parametra" -%}
+
+<br>
+<h2>Koreňový element</h2>
+{{ "Zoskupuje nasledujúce elementy: `presentation`" | markdownify }}
+<p>Koreňovým elementom celého dokumentu je element <span class="highlighter-rouge">presentation</span>, ktorý:</p>
+<ul>
+    <li>musí mať práve jedného potomka typu <span class="highlighter-rouge">title-page</span>, ktorý je zároveň aj prvým potomkom koreňového elementu</li>
+    <li>musí mať minimálne jedného potomka typu <span class="highlighter-rouge">page</span></li>
+</ul>
+<p>V <em>globálnej konfigurácií</em> je možné zmeniť zobrazenie všetkých potomkov koreňového elementu.</p>
+
+<br>
+<h2>Skupina elementov pre definovanie strán</h2>
+{{ "Zoskupuje nasledujúce elementy: `title-page`, `page`" | markdownify }}
+{%- include data_table.liquid.html dbs = db.page_elements -%}
+
+<br>
+<h2>Skupina blokových elementov</h2>
+{{ "Zoskupuje nasledujúce elementy: `subtitle`, `text`, `space`, `layout`, `table`,  `list`,  `image`" | markdownify }}
+<h3>Jednoduché elementy</h3>
+{%- include data_table.liquid.html dbs = db.block_elements -%}
+
+<br>
+<h3>Element <span class="highlighter-rouge">layout</span></h3>
+{%- include data_table.liquid.html dbs = db.elm_layout -%}
+
+
+<br>
+<h3>Element <span class="highlighter-rouge">table</span></h3>
+{%- include data_table.liquid.html dbs = db.elm_table -%}
+
+
+<br>
+<h3>Element <span class="highlighter-rouge">list</span></h3>
+{%- include data_table.liquid.html dbs = db.elm_list -%}
+
+
+<br>
+<h3>Element <span class="highlighter-rouge">image</span></h3>
+{%- include data_table.liquid.html dbs = db.elm_image -%}
+
+<br>
+<h2>Skupina riadkových elementov</h2>
+{{ "Zoskupuje nasledujúce elementy: `bold`, `cursive`, `underline`, `code`,  `link`, `color`,  `font`, `size`" | markdownify }}
+{%- include data_table.liquid.html dbs = db.inline_elements -%}
+
+<br>
+<h2>Skupina všeobecných formátovacích atribútov</h2>
+{{ "Zoskupuje nasledujúce atribúty: `font-family`, `font-size`, `font-weight`, `text-color`,  `text-align`, `background`,  `line-height`, `padding`" | markdownify }}
+{%- include data_table_simple.liquid.html dbs = db.attributes label = "Názov atribútu" -%}
+<br>
+
+
